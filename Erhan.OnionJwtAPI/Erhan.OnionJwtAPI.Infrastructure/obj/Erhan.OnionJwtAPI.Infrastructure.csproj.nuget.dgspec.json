@@ -4,12 +4,12 @@
     "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Infrastructure\\Erhan.OnionJwtAPI.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\Erhan.OnionJwtAPI.Application.csproj": {
+    "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\Erhan.MovieTicketSystem.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\Erhan.OnionJwtAPI.Application.csproj",
-        "projectName": "Erhan.OnionJwtAPI.Application",
-        "projectPath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\Erhan.OnionJwtAPI.Application.csproj",
+        "projectUniqueName": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\Erhan.MovieTicketSystem.Application.csproj",
+        "projectName": "Erhan.MovieTicketSystem.Application",
+        "projectPath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\Erhan.MovieTicketSystem.Application.csproj",
         "packagesPath": "C:\\Users\\erhaa\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\obj\\",
         "projectStyle": "PackageReference",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Domain\\Erhan.OnionJwtAPI.Domain.csproj": {
-                "projectPath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Domain\\Erhan.OnionJwtAPI.Domain.csproj"
+              "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Domain\\Erhan.MovieTicketSystem.Domain.csproj": {
+                "projectPath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Domain\\Erhan.MovieTicketSystem.Domain.csproj"
               }
             }
           }
@@ -62,12 +62,12 @@
         }
       }
     },
-    "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Domain\\Erhan.OnionJwtAPI.Domain.csproj": {
+    "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Domain\\Erhan.MovieTicketSystem.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Domain\\Erhan.OnionJwtAPI.Domain.csproj",
-        "projectName": "Erhan.OnionJwtAPI.Domain",
-        "projectPath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Domain\\Erhan.OnionJwtAPI.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Domain\\Erhan.MovieTicketSystem.Domain.csproj",
+        "projectName": "Erhan.MovieTicketSystem.Domain",
+        "projectPath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Domain\\Erhan.MovieTicketSystem.Domain.csproj",
         "packagesPath": "C:\\Users\\erhaa\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Domain\\obj\\",
         "projectStyle": "PackageReference",
@@ -140,8 +140,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\Erhan.OnionJwtAPI.Application.csproj": {
-                "projectPath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\Erhan.OnionJwtAPI.Application.csproj"
+              "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\Erhan.MovieTicketSystem.Application.csproj": {
+                "projectPath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\Erhan.MovieTicketSystem.Application.csproj"
               }
             }
           }

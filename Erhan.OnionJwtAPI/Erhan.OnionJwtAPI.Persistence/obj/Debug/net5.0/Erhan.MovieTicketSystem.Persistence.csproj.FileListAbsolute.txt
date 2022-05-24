@@ -1,0 +1,17 @@
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\bin\Debug\net5.0\Erhan.MovieTicketSystem.Persistence.deps.json
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\bin\Debug\net5.0\Erhan.MovieTicketSystem.Persistence.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\bin\Debug\net5.0\Erhan.MovieTicketSystem.Persistence.pdb
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\bin\Debug\net5.0\Erhan.MovieTicketSystem.Application.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\bin\Debug\net5.0\Erhan.MovieTicketSystem.Domain.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\bin\Debug\net5.0\Erhan.MovieTicketSystem.Application.pdb
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\bin\Debug\net5.0\Erhan.MovieTicketSystem.Domain.pdb
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\obj\Debug\net5.0\Erhan.MovieTicketSystem.Persistence.csproj.AssemblyReference.cache
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\obj\Debug\net5.0\Erhan.MovieTicketSystem.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\obj\Debug\net5.0\Erhan.MovieTicketSystem.Persistence.AssemblyInfoInputs.cache
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\obj\Debug\net5.0\Erhan.MovieTicketSystem.Persistence.AssemblyInfo.cs
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\obj\Debug\net5.0\Erhan.MovieTicketSystem.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\obj\Debug\net5.0\Erhan.MovieTicketSystem.Persistence.csproj.CopyComplete
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\obj\Debug\net5.0\Erhan.MovieTicketSystem.Persistence.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\obj\Debug\net5.0\refint\Erhan.MovieTicketSystem.Persistence.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\obj\Debug\net5.0\Erhan.MovieTicketSystem.Persistence.pdb
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Persistence\obj\Debug\net5.0\ref\Erhan.MovieTicketSystem.Persistence.dll

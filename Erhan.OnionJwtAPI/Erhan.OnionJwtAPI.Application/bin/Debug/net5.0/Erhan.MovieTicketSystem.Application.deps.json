@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Erhan.MovieTicketSystem.Application/1.0.0": {
+        "dependencies": {
+          "Erhan.MovieTicketSystem.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Erhan.MovieTicketSystem.Application.dll": {}
+        }
+      },
+      "Erhan.MovieTicketSystem.Domain/1.0.0": {
+        "runtime": {
+          "Erhan.MovieTicketSystem.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Erhan.MovieTicketSystem.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Erhan.MovieTicketSystem.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

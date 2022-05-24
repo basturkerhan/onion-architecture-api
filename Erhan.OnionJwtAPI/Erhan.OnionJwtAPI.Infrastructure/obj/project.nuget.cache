@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BlSKIDd7NdKWmEJ5XiTKDgwHZDOoxLtDkbTT5R9SofKHwiBxvsm3QE0NzVCutdtCdgInEW1DeFOpJKsnyk6sQA==",
+  "dgSpecHash": "Hi4q9EDwzOf4Yz5TwaDd80w0km3hzLCSO0ARmOGjFI3FjvvpkOMprLzhkZN8RjluEgRZWNgJpIjHq9j1wad6Fw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Infrastructure\\Erhan.OnionJwtAPI.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Infrastructure\\Erhan.MovieTicketSystem.Infrastructure.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

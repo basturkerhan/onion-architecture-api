@@ -1,0 +1,17 @@
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\bin\Debug\net5.0\Erhan.MovieTicketSystem.Infrastructure.deps.json
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\bin\Debug\net5.0\Erhan.MovieTicketSystem.Infrastructure.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\bin\Debug\net5.0\Erhan.MovieTicketSystem.Infrastructure.pdb
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\bin\Debug\net5.0\Erhan.MovieTicketSystem.Application.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\bin\Debug\net5.0\Erhan.MovieTicketSystem.Domain.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\bin\Debug\net5.0\Erhan.MovieTicketSystem.Application.pdb
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\bin\Debug\net5.0\Erhan.MovieTicketSystem.Domain.pdb
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\obj\Debug\net5.0\Erhan.MovieTicketSystem.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\obj\Debug\net5.0\Erhan.MovieTicketSystem.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\obj\Debug\net5.0\Erhan.MovieTicketSystem.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\obj\Debug\net5.0\Erhan.MovieTicketSystem.Infrastructure.AssemblyInfo.cs
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\obj\Debug\net5.0\Erhan.MovieTicketSystem.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\obj\Debug\net5.0\Erhan.MovieTicketSystem.Infrastructure.csproj.CopyComplete
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\obj\Debug\net5.0\Erhan.MovieTicketSystem.Infrastructure.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\obj\Debug\net5.0\refint\Erhan.MovieTicketSystem.Infrastructure.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\obj\Debug\net5.0\Erhan.MovieTicketSystem.Infrastructure.pdb
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.Infrastructure\obj\Debug\net5.0\ref\Erhan.MovieTicketSystem.Infrastructure.dll

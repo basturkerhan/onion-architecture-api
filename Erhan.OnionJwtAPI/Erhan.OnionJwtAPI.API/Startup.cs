@@ -1,6 +1,8 @@
+using Erhan.MovieTicketSystem.Persistence.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Erhan.OnionJwtAPI.API
+namespace Erhan.MovieTicketSystem.API
 {
     public class Startup
     {
@@ -25,11 +27,14 @@ namespace Erhan.OnionJwtAPI.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<TicketDBContext>(opt =>
+            {
+                opt.UseSqlServer(Configuration.GetConnectionString("Local"));
+            });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Erhan.OnionJwtAPI.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Erhan.MovieTicketSystem.API", Version = "v1" });
             });
         }
 
