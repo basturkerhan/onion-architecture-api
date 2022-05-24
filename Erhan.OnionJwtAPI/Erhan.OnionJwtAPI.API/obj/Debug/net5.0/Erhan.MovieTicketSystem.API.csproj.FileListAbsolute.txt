@@ -70,3 +70,14 @@ C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.O
 C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\MediatR.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\MediatR.Contracts.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\erhaa\Documents\GitHub\onion-architecture-api\Erhan.OnionJwtAPI\Erhan.OnionJwtAPI.API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

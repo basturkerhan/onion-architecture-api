@@ -1,21 +1,18 @@
+using Erhan.MovieTicketSystem.Application.ServiceRegistration;
 using Erhan.MovieTicketSystem.Infrastructure.Tools;
 using Erhan.MovieTicketSystem.Persistence.Context;
+using Erhan.MovieTicketSystem.Persistence.ServiceRegistration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Erhan.MovieTicketSystem.API
 {
@@ -35,6 +32,11 @@ namespace Erhan.MovieTicketSystem.API
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("Local"));
             });
+
+           
+            services.AddApplicationServices();
+            services.AddPersistenceServices();
+
             services.AddCors(cors =>
             {
                 cors.AddPolicy("GlobalCors", opt =>

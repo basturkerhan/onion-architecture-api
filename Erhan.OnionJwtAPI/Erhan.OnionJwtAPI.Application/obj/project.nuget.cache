@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "RxU/3hZIPSUTbfdGZT7d13uYh6XlZFvSN1Crtm434UCpZ2EG9OMPrBXvIIszqEKhAM3kCaUvgCR8rJnDjpKpaQ==",
+  "dgSpecHash": "10cCFYauMMWjR9o2tnAWeUcRIiWApU3xpJip24R/0Il/PRn/uNs1RCOy4+gTGFKTBeuAHg6UCFhZ9oAi3xHTqw==",
   "success": true,
   "projectFilePath": "C:\\Users\\erhaa\\Documents\\GitHub\\onion-architecture-api\\Erhan.OnionJwtAPI\\Erhan.OnionJwtAPI.Application\\Erhan.MovieTicketSystem.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\erhaa\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\erhaa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\erhaa\\.nuget\\packages\\fluentvalidation\\11.0.1\\fluentvalidation.11.0.1.nupkg.sha512",
+    "C:\\Users\\erhaa\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.0.1\\fluentvalidation.dependencyinjectionextensions.11.0.1.nupkg.sha512",
+    "C:\\Users\\erhaa\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\erhaa\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\erhaa\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
+    "C:\\Users\\erhaa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\erhaa\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\erhaa\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\erhaa\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\erhaa\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

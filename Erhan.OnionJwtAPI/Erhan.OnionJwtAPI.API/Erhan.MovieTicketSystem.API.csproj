@@ -19,8 +19,4 @@
     <ProjectReference Include="..\Erhan.OnionJwtAPI.Persistence\Erhan.MovieTicketSystem.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

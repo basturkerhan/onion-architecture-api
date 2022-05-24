@@ -1,4 +1,5 @@
-﻿using Erhan.MovieTicketSystem.Domain;
+﻿using Erhan.MovieTicketSystem.Application.Enums;
+using Erhan.MovieTicketSystem.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -19,6 +20,7 @@ namespace Erhan.MovieTicketSystem.Persistence.Configurations
             builder.Property(x => x.Password).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Fullname).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Email).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.GenderId).HasDefaultValue(GenderType.Unknown);
 
             builder
                 .HasOne(x => x.Gender)
