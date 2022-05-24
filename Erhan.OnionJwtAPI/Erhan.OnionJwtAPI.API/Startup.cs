@@ -1,4 +1,6 @@
+using Erhan.MovieTicketSystem.Infrastructure.Tools;
 using Erhan.MovieTicketSystem.Persistence.Context;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,10 +9,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Erhan.MovieTicketSystem.API
@@ -33,7 +37,7 @@ namespace Erhan.MovieTicketSystem.API
             });
             services.AddCors(cors =>
             {
-                cors.AddPolicy("DefaultCorsPolicy", opt =>
+                cors.AddPolicy("GlobalCors", opt =>
                 {
                     opt.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                 });
@@ -42,6 +46,21 @@ namespace Erhan.MovieTicketSystem.API
             {
                 opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+            {
+                opt.RequireHttpsMetadata = false;
+                opt.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidAudience = JwtTokenSettings.Audience,
+                    ValidIssuer = JwtTokenSettings.Issuer,
+                    ClockSkew = TimeSpan.Zero,
+                    ValidateLifetime = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenSettings.Key)),
+                    ValidateIssuerSigningKey = true
+                };
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Erhan.MovieTicketSystem.API", Version = "v1" });
@@ -60,7 +79,7 @@ namespace Erhan.MovieTicketSystem.API
 
             app.UseRouting();
 
-            app.UseCors("DefaultCorsPolicy");
+            app.UseCors("GlobalCors");
             app.UseAuthentication();
             app.UseAuthorization();
 
