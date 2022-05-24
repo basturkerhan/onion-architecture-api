@@ -31,7 +31,17 @@ namespace Erhan.MovieTicketSystem.API
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("Local"));
             });
-            services.AddControllers();
+            services.AddCors(cors =>
+            {
+                cors.AddPolicy("DefaultCorsPolicy", opt =>
+                {
+                    opt.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+            });
+            services.AddControllers().AddNewtonsoftJson(opt =>
+            {
+                opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Erhan.MovieTicketSystem.API", Version = "v1" });
@@ -50,6 +60,8 @@ namespace Erhan.MovieTicketSystem.API
 
             app.UseRouting();
 
+            app.UseCors("DefaultCorsPolicy");
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
