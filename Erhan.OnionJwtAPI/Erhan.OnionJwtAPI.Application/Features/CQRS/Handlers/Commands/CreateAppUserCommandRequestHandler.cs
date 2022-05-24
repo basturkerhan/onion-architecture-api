@@ -23,14 +23,15 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands
 
         public async Task<Unit> Handle(CreateAppUserCommandRequest request, CancellationToken cancellationToken)
         {
-            //await _repository.CreateAsync(new AppUser
-            //{
-            //    Email = request.Email,
-            //    Fullname = request.Fullname,
-            //    AppRoleId = (int)RoleType.Member,
-            //    Username = request.Username,
-            //    Password = request.Password,
-            //});
+            await _repository.CreateAsync(new AppUser
+            {
+                Email = request.Email,
+                Fullname = request.Fullname,
+                AppRoleId = (int)RoleType.Member,
+                Username = request.Username,
+                Password = request.Password,
+                GenderId = (int)GenderType.Unknown
+            });
 
             return Unit.Value;
         }

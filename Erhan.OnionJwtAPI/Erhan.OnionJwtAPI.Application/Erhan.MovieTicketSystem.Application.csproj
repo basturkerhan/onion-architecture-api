@@ -16,9 +16,4 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\CQRS\Handlers\Queries\" />
-    <Folder Include="Features\CQRS\Queries\" />
-  </ItemGroup>
-
 </Project>

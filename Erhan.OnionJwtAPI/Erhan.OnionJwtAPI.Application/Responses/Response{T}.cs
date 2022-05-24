@@ -27,5 +27,11 @@ namespace Erhan.MovieTicketSystem.Application.Responses
             ValidationErrors = errors;
             Data = data;
         }
+
+        public Response(List<CustomValidationError> errors) : base(ResponseType.ValidationError)
+        {
+            ValidationErrors = errors;
+        }
+
     }
 }

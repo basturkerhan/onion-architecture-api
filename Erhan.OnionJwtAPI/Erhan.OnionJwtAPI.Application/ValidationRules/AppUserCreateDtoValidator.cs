@@ -17,6 +17,7 @@ namespace Erhan.MovieTicketSystem.Application.ValidationRules
             RuleFor(x => x.Password).Equal(x => x.ConfirmPassword).WithMessage("Parolalar eşleşmiyor");
             RuleFor(x => x.Fullname).NotEmpty().WithMessage("İsim boş olamaz");
             RuleFor(x => x.Username).NotEmpty().WithMessage("Kullanıcı adı boş olamaz");
+            RuleFor(x => x.Email).NotEmpty().WithMessage("Email boş olamaz");
             RuleFor(x => x.Username).MinimumLength(3).WithMessage("Kullanıcı min 3 karakter olmalıdır");
         }
     }
