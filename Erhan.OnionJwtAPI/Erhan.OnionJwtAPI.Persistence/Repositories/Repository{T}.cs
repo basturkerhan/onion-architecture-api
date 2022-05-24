@@ -48,14 +48,14 @@ namespace Erhan.MovieTicketSystem.Persistence.Repositories
             // saveChanges UOW'de çalıştırılacak
         }
 
-        public void Remove(T entity)
+        public async void Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
             // saveChanges UOW'de çalıştırılacak
         }
 
-        public void Update(T entity, T unchanged)
+        public async void Update(T entity, T unchanged)
         {
             _context.Entry(unchanged).CurrentValues.SetValues(entity);
             await _context.SaveChangesAsync();

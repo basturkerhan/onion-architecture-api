@@ -24,7 +24,7 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands
         }
         public async Task<Unit> Handle(DeleteMovieCommandRequest request, CancellationToken cancellationToken)
         {
-            Movie deletedItem = await _repository.FindAsync(request.id);
+            Movie deletedItem = await _repository.FindAsync(request.Id);
             if (deletedItem != null)
             {
                 _repository.Remove(deletedItem);

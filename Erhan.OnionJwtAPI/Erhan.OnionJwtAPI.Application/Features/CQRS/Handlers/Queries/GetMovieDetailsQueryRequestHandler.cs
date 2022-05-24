@@ -27,7 +27,18 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Queries
         public async Task<MovieDetailsDto> Handle(GetMovieDetailsQueryRequest request, CancellationToken cancellationToken)
         {
             Movie movie = await _repository.FindAsync(request.Id);
-            return _mapper.Map<MovieDetailsDto>(movie);
+
+            return new MovieDetailsDto()
+            {
+                Id = movie.Id,
+                Description = movie.Description,
+                ImageUrl = movie.ImageUrl,
+                Name = movie.Name,
+                Actors = movie.Actors,
+                MovieGenres = movie.MovieGenres.Select(x => x.Genre.Definition).ToList(),
+                MovieHalls = movie.MovieHalls.Select(x => x.Hall.Hallname).ToList(),
+                ReleaseDate = movie.ReleaseDate,
+            };
         }
     }
 }

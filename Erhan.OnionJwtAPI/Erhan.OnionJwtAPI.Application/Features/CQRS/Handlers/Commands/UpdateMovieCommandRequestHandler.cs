@@ -1,4 +1,5 @@
-﻿using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
+﻿using AutoMapper;
+using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
 using Erhan.MovieTicketSystem.Application.Interfaces;
 using Erhan.MovieTicketSystem.Domain;
 using MediatR;

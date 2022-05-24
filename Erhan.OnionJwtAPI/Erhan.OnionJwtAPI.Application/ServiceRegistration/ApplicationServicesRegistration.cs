@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Erhan.MovieTicketSystem.Application.Dto.AppUserDtos;
 using Erhan.MovieTicketSystem.Application.Dto.MovieDtos;
+using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Queries;
 using Erhan.MovieTicketSystem.Application.Interfaces;
 using Erhan.MovieTicketSystem.Application.Mappings;
@@ -22,7 +23,7 @@ namespace Erhan.MovieTicketSystem.Application.ServiceRegistration
         public static void AddApplicationServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IValidator<AppUserCreateDto>, AppUserCreateDtoValidator>();
-            serviceCollection.AddTransient<IValidator<MovieCreateDto>, CreateMovieCommandValidator>();
+            serviceCollection.AddTransient<IValidator<CreateMovieCommandRequest>, CreateMovieCommandValidator>();
             serviceCollection.AddTransient<IValidator<LoginAppUserQueryRequest>, LoginAppUserQueryValidator>();
             serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
 
