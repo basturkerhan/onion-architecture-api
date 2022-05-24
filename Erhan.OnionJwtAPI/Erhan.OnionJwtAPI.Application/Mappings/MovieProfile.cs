@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Erhan.MovieTicketSystem.Application.Dto.MovieDtos;
+using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
 using Erhan.MovieTicketSystem.Domain;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Erhan.MovieTicketSystem.Application.Mappings
         {
             this.CreateMap<Movie, MovieListDto>().ReverseMap();
             this.CreateMap<Movie, MovieDetailsDto>().ReverseMap();
+            this.CreateMap<UpdateMovieCommandRequest, Movie>();
         }
     }
 }

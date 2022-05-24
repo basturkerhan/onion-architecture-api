@@ -1,4 +1,5 @@
 ﻿using Erhan.MovieTicketSystem.Application.Dto.MovieDtos;
+using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Erhan.MovieTicketSystem.Application.ValidationRules
 {
-    public class MovieCreateDtoValidator : AbstractValidator<MovieCreateDto>
+    public class CreateMovieCommandValidator : AbstractValidator<CreateMovieCommandRequest>
     {
-        public MovieCreateDtoValidator()
+        public CreateMovieCommandValidator()
         {
             this.RuleFor(x => x.Name).NotEmpty().WithMessage("Film ismi alanı boş geçilemez");
             this.RuleFor(x => x.ImageUrl).NotEmpty().WithMessage("Resim boş geçilemez");

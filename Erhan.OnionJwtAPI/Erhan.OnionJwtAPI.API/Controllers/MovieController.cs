@@ -21,11 +21,11 @@ namespace Erhan.MovieTicketSystem.API.Controllers
     public class MovieController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly IValidator<MovieCreateDto> _movieCreateDtoValidator;
-        public MovieController(IMediator mediator, IValidator<MovieCreateDto> movieCreateDtoValidator)
+        private readonly IValidator<CreateMovieCommandRequest> _createMovieCommandValidator;
+        public MovieController(IMediator mediator, IValidator<CreateMovieCommandRequest> createMovieCommandValidator)
         {
             _mediator = mediator;
-            _movieCreateDtoValidator = movieCreateDtoValidator;
+            _createMovieCommandValidator = createMovieCommandValidator;
         }
 
         [HttpGet]
@@ -55,23 +55,34 @@ namespace Erhan.MovieTicketSystem.API.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetById(MovieCreateDto dto)
+        public async Task<IActionResult> GetById(CreateMovieCommandRequest request)
         {
-            var result = _movieCreateDtoValidator.Validate(dto);
+            var result = _createMovieCommandValidator.Validate(request);
             if(result.IsValid)
             {
-                await _mediator.Send(new CreateMovieCommandRequest
-                {
-                    Actors = dto.Actors,
-                    Description = dto.Description,
-                    ImageUrl = dto.ImageUrl,
-                    Name = dto.Name,
-                });
+                await _mediator.Send(request);
 
-                return Created("", dto);
+                return Created("", request);
             }
 
             return NotFound(new Response(ResponseType.NotFound, "Girdiğiniz verileri kontrol ediniz."));
         }
+
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _mediator.Send(new DeleteMovieCommandRequest(id));
+            return Ok();
+        }
+
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Update(DeleteMovieCommandRequest request)
+        {
+            await _mediator.Send(request);
+            return Ok();
+        }
+
     }
 }
