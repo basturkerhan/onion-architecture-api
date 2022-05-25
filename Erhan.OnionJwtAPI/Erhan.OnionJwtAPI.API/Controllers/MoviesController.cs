@@ -1,5 +1,6 @@
 ﻿using Erhan.MovieTicketSystem.Application.Dto.MovieDtos;
 using Erhan.MovieTicketSystem.Application.Enums;
+using Erhan.MovieTicketSystem.Application.Extensions;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Queries;
@@ -18,14 +19,16 @@ namespace Erhan.MovieTicketSystem.API.Controllers
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-    public class MovieController : ControllerBase
+    public class MoviesController : ControllerBase
     {
         private readonly IMediator _mediator;
         private readonly IValidator<CreateMovieCommandRequest> _createMovieCommandValidator;
-        public MovieController(IMediator mediator, IValidator<CreateMovieCommandRequest> createMovieCommandValidator)
+        private readonly IValidator<UpdateMovieCommandRequest> _updateMovieCommandValidator;
+        public MoviesController(IMediator mediator, IValidator<CreateMovieCommandRequest> createMovieCommandValidator, IValidator<UpdateMovieCommandRequest> updateMovieCommandValidator)
         {
             _mediator = mediator;
             _createMovieCommandValidator = createMovieCommandValidator;
+            _updateMovieCommandValidator = updateMovieCommandValidator;
         }
 
         [HttpGet]
@@ -65,7 +68,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
                 return Created("", request);
             }
 
-            return NotFound(new Response(ResponseType.NotFound, "Girdiğiniz verileri kontrol ediniz."));
+            return BadRequest(new Response<CreateMovieCommandRequest>(request, result.ConvertToCustomValidationError()));
         }
 
         [HttpDelete("{id}")]
@@ -78,10 +81,16 @@ namespace Erhan.MovieTicketSystem.API.Controllers
 
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Update(DeleteMovieCommandRequest request)
+        public async Task<IActionResult> Update(UpdateMovieCommandRequest request)
         {
-            await _mediator.Send(request);
-            return Ok();
+            var result = _updateMovieCommandValidator.Validate(request);
+            if (result.IsValid)
+            {
+                await _mediator.Send(request);
+                return Ok(new Response(ResponseType.Success,"Güncelleme işlemi başarılı"));
+            }
+
+            return BadRequest(new Response<UpdateMovieCommandRequest>(request, result.ConvertToCustomValidationError()));
         }
 
     }
