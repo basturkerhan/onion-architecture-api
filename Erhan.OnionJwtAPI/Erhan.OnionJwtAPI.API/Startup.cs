@@ -1,4 +1,5 @@
 using Erhan.MovieTicketSystem.Application.ServiceRegistration;
+using Erhan.MovieTicketSystem.Infrastructure.ServiceRegistration;
 using Erhan.MovieTicketSystem.Infrastructure.Tools;
 using Erhan.MovieTicketSystem.Persistence.Context;
 using Erhan.MovieTicketSystem.Persistence.ServiceRegistration;
@@ -35,6 +36,7 @@ namespace Erhan.MovieTicketSystem.API
 
            
             services.AddApplicationServices();
+            services.AddInfrastructureServices();
             services.AddPersistenceServices();
 
             services.AddCors(cors =>
@@ -47,20 +49,6 @@ namespace Erhan.MovieTicketSystem.API
             services.AddControllers().AddNewtonsoftJson(opt =>
             {
                 opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            });
-
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
-            {
-                opt.RequireHttpsMetadata = false;
-                opt.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    ValidAudience = JwtTokenSettings.Audience,
-                    ValidIssuer = JwtTokenSettings.Issuer,
-                    ClockSkew = TimeSpan.Zero,
-                    ValidateLifetime = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenSettings.Key)),
-                    ValidateIssuerSigningKey = true
-                };
             });
 
             services.AddSwaggerGen(c =>
