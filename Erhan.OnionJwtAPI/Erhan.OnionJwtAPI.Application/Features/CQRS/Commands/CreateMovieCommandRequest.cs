@@ -1,13 +1,9 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Erhan.MovieTicketSystem.Application.Responses;
+using MediatR;
 
 namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Commands
 {
-    public class CreateMovieCommandRequest : IRequest
+    public class CreateMovieCommandRequest : IRequest<Response>
     {
         public string Name { get; set; }
         public string Description { get; set; }

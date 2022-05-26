@@ -24,6 +24,11 @@ namespace Erhan.MovieTicketSystem.Persistence.Repositories
             return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
 
+        public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>> filter)
+        {
+            return await _context.Set<T>().Where(filter).AsNoTracking().ToListAsync();
+        }
+
         public async Task<T> FindAsync(int id)
         {
             return await _context.Set<T>().FindAsync(id);
@@ -44,21 +49,18 @@ namespace Erhan.MovieTicketSystem.Persistence.Repositories
         public async Task CreateAsync(T entity)
         {
             await _context.Set<T>().AddAsync(entity);
-            await _context.SaveChangesAsync();
             // saveChanges UOW'de çalıştırılacak
         }
 
-        public async void Remove(T entity)
+        public void Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
-            await _context.SaveChangesAsync();
             // saveChanges UOW'de çalıştırılacak
         }
 
-        public async void Update(T entity, T unchanged)
+        public void Update(T entity, T unchanged)
         {
             _context.Entry(unchanged).CurrentValues.SetValues(entity);
-            await _context.SaveChangesAsync();
             // saveChanges UOW'de çalıştırılacak
         }
     }

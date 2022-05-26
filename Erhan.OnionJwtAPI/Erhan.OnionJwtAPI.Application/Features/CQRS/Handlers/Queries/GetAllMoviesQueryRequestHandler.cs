@@ -15,18 +15,18 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Queries
 {
     public class GetAllMoviesQueryRequestHandler : IRequestHandler<GetAllMoviesQueryRequest, List<MovieListDto>>
     {
-        private readonly IRepository<Movie> _repository;
+        private readonly IUow _uow;
         private readonly IMapper _mapper;
 
-        public GetAllMoviesQueryRequestHandler(IRepository<Movie> repository, IMapper mapper)
+        public GetAllMoviesQueryRequestHandler(IUow uow, IMapper mapper)
         {
-            _repository = repository;
+            _uow = uow;
             _mapper = mapper;
         }
 
         public async Task<List<MovieListDto>> Handle(GetAllMoviesQueryRequest request, CancellationToken cancellationToken)
         {
-            List<Movie> movies = await _repository.GetAllAsync();
+            List<Movie> movies = await _uow.GetRepository<Movie>().GetAllAsync();
             if(movies != null)
             {
                 return _mapper.Map<List<MovieListDto>>(movies);

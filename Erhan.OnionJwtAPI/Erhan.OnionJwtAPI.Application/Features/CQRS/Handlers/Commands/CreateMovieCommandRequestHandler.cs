@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Erhan.MovieTicketSystem.Application.Enums;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
 using Erhan.MovieTicketSystem.Application.Interfaces;
+using Erhan.MovieTicketSystem.Application.Responses;
 using Erhan.MovieTicketSystem.Domain;
 using MediatR;
 using System;
@@ -12,29 +14,30 @@ using System.Threading.Tasks;
 
 namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands
 {
-    public class CreateMovieCommandRequestHandler : IRequestHandler<CreateMovieCommandRequest>
+    public class CreateMovieCommandRequestHandler : IRequestHandler<CreateMovieCommandRequest, Response>
     {
-        private readonly IRepository<Movie> _repository;
-        private readonly IMapper _mapper;
+        private readonly IUow _uow;
 
-        public CreateMovieCommandRequestHandler(IRepository<Movie> repository, IMapper mapper)
+        public CreateMovieCommandRequestHandler(IUow uow)
         {
-            _repository = repository;
-            _mapper = mapper;
+            _uow = uow;
         }
 
-        public async Task<Unit> Handle(CreateMovieCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(CreateMovieCommandRequest request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsync(new Movie
+            await _uow.GetRepository<Movie>().CreateAsync(new Movie
             {
                 Actors = request.Actors,
                 Description = request.Description,
                 ImageUrl = request.ImageUrl,
                 Name = request.Name,
                 ReleaseDate = DateTime.UtcNow,
+                MovieGenres = new List<MovieGenre>(),
+                MovieHalls = new List<MovieHall>()
             });
+            await _uow.SaveChangesAsync();
 
-            return Unit.Value;
+            return new Response(ResponseType.Success, "Film ekleme işlemi başarılı");
         }
     }
 }

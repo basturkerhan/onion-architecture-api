@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Queries
 {
-    public class GetGenreDetailsQueryRequest : IRequest<GenreListDto>
+    public class GetGenreDetailsQueryRequest : IRequest<GenreDetailsDto>
     {
         public int Id { get; set; }
 

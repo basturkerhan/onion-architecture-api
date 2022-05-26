@@ -19,5 +19,7 @@ namespace Erhan.MovieTicketSystem.Domain
 
         public int AppRoleId { get; set; }
         public AppRole AppRole { get; set; }
+
+        public List<Chair> Chairs { get; set; }
     }
 }

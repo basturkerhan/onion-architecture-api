@@ -32,7 +32,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Member,Admin")]
+        //[Authorize(Roles = "Member,Admin")]
         public async Task<IActionResult> GetAll()
         {
             List<MovieListDto> movieListDto = await _mediator.Send(new GetAllMoviesQueryRequest());
@@ -44,7 +44,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "Member,Admin")]
+        //[Authorize(Roles = "Member,Admin")]
         public async Task<IActionResult> GetById(int id)
         {
             MovieDetailsDto movieDetailsDto = await _mediator.Send(new GetMovieDetailsQueryRequest(id));
@@ -57,37 +57,36 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetById(CreateMovieCommandRequest request)
+        //[Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Create(CreateMovieCommandRequest request)
         {
             var result = _createMovieCommandValidator.Validate(request);
             if(result.IsValid)
             {
-                await _mediator.Send(request);
-
-                return Created("", request);
+                Response response = await _mediator.Send(request);
+                return Created("", response);
             }
 
             return BadRequest(new Response<CreateMovieCommandRequest>(request, result.ConvertToCustomValidationError()));
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _mediator.Send(new DeleteMovieCommandRequest(id));
-            return Ok();
+            Response response = await _mediator.Send(new DeleteMovieCommandRequest(id));
+            return response.Equals(ResponseType.Success) ? Ok(response) : NotFound(response);
         }
 
         [HttpPut]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(UpdateMovieCommandRequest request)
         {
             var result = _updateMovieCommandValidator.Validate(request);
             if (result.IsValid)
             {
-                await _mediator.Send(request);
-                return Ok(new Response(ResponseType.Success,"Güncelleme işlemi başarılı"));
+                Response response = await _mediator.Send(request);
+                return response.Equals(ResponseType.Success) ? Ok(response) : NotFound(response);
             }
 
             return BadRequest(new Response<UpdateMovieCommandRequest>(request, result.ConvertToCustomValidationError()));

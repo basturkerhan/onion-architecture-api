@@ -100,6 +100,17 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.Text.Encodings.Web": "4.5.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        }
+      },
       "Microsoft.CSharp/4.7.0": {},
       "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
         "runtime": {
@@ -209,6 +220,7 @@
         }
       },
       "System.Security.Cryptography.Cng/4.5.0": {},
+      "System.Text.Encodings.Web/4.5.0": {},
       "Erhan.MovieTicketSystem.Application/1.0.0": {
         "dependencies": {
           "AutoMapper": "11.0.1",
@@ -216,7 +228,8 @@
           "Erhan.MovieTicketSystem.Domain": "1.0.0",
           "FluentValidation": "11.0.1",
           "FluentValidation.DependencyInjectionExtensions": "11.0.1",
-          "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1"
+          "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
         },
         "runtime": {
           "Erhan.MovieTicketSystem.Application.dll": {}
@@ -290,6 +303,20 @@
       "sha512": "sha512-jXMB2+jOG9JvGVCjsKvc5Bo1iSgzdbQw+Iq3BM+eIZ1inDg8rnEVUcWKpRevi9Z6F1/UnSJZ0+rhElT2/aVhhQ==",
       "path": "microsoft.aspnetcore.authentication.jwtbearer/5.0.17",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.5.0.17.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
+      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.7.0": {
       "type": "package",
@@ -374,6 +401,13 @@
       "sha512": "sha512-WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
       "path": "system.security.cryptography.cng/4.5.0",
       "hashPath": "system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    },
+    "System.Text.Encodings.Web/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g==",
+      "path": "system.text.encodings.web/4.5.0",
+      "hashPath": "system.text.encodings.web.4.5.0.nupkg.sha512"
     },
     "Erhan.MovieTicketSystem.Application/1.0.0": {
       "type": "project",

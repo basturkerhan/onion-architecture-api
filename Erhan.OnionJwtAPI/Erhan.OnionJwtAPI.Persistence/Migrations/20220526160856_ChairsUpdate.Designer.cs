@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Erhan.MovieTicketSystem.Persistence.Migrations
 {
     [DbContext(typeof(TicketDBContext))]
-    [Migration("20220524062129_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20220526160856_ChairsUpdate")]
+    partial class ChairsUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -59,7 +59,9 @@ namespace Erhan.MovieTicketSystem.Persistence.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("GenderId")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
 
                     b.Property<string>("Password")
                         .IsRequired()

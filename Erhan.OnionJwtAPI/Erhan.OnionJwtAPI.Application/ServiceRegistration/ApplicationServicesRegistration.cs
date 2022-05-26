@@ -22,6 +22,8 @@ namespace Erhan.MovieTicketSystem.Application.ServiceRegistration
     {
         public static void AddApplicationServices(this IServiceCollection serviceCollection)
         {
+            serviceCollection.AddTransient<IValidator<CreateHallCommandRequest>, CreateHallCommandValidator>();
+            serviceCollection.AddTransient<IValidator<UpdateHallCommandRequest>, UpdateHallCommandValidator>();
             serviceCollection.AddTransient<IValidator<UpdateGenreCommandRequest>, UpdateGenreCommandValidator>();
             serviceCollection.AddTransient<IValidator<CreateGenreCommandRequest>, CreateGenreCommandValidator>();
             serviceCollection.AddTransient<IValidator<AppUserCreateDto>, AppUserCreateDtoValidator>();
@@ -34,7 +36,10 @@ namespace Erhan.MovieTicketSystem.Application.ServiceRegistration
             {
                 opt.AddProfiles(new List<Profile>()
                 {
-                    new MovieProfile()
+                    new MovieProfile(),
+                    new GenreProfile(),
+                    new HallProfile(),
+                    new ChairsProfile()
                 });
             });
 

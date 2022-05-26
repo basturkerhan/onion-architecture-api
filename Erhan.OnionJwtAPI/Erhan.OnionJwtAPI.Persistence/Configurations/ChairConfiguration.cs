@@ -17,6 +17,10 @@ namespace Erhan.MovieTicketSystem.Persistence.Configurations
                 .HasOne(x => x.Hall)
                 .WithMany(x => x.Chairs)
                 .HasForeignKey(x => x.HallId);
+            builder
+                .HasOne(x => x.AppUser)
+                .WithMany(x => x.Chairs)
+                .HasForeignKey(x => x.AppUserId);
         }
     }
 }

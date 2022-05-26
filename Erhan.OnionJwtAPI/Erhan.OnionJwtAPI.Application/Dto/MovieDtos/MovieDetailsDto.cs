@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Erhan.MovieTicketSystem.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Erhan.MovieTicketSystem.Application.Dto.MovieDtos
         public string Actors { get; set; }
         public string ImageUrl { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public List<string> MovieHalls { get; set; }
-        public List<string> MovieGenres { get; set; }
+        public List<MovieHall> MovieHalls { get; set; }
+        public List<MovieGenre> MovieGenres { get; set; }
     }
 }

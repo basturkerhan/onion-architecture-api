@@ -86,7 +86,7 @@ namespace Erhan.MovieTicketSystem.Persistence.Migrations
                     Fullname = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    GenderId = table.Column<int>(type: "int", nullable: false),
+                    GenderId = table.Column<int>(type: "int", nullable: false, defaultValue: 1),
                     AppRoleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -113,6 +113,7 @@ namespace Erhan.MovieTicketSystem.Persistence.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IsSuitable = table.Column<bool>(type: "bit", nullable: false),
+                    ChairNumber = table.Column<int>(type: "int", nullable: false),
                     HallId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

@@ -15,15 +15,16 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands
 {
     public class CreateAppUserCommandRequestHandler : IRequestHandler<CreateAppUserCommandRequest>
     {
-        private readonly IRepository<AppUser> _repository;
-        public CreateAppUserCommandRequestHandler(IRepository<AppUser> repository)
+        private readonly IUow _uow;
+
+        public CreateAppUserCommandRequestHandler(IUow uow)
         {
-            _repository = repository;
+            _uow = uow;
         }
 
         public async Task<Unit> Handle(CreateAppUserCommandRequest request, CancellationToken cancellationToken)
         {
-            await _repository.CreateAsync(new AppUser
+            await _uow.GetRepository<AppUser>().CreateAsync(new AppUser
             {
                 Email = request.Email,
                 Fullname = request.Fullname,
@@ -32,6 +33,7 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands
                 Password = request.Password,
                 GenderId = (int)GenderType.Unknown
             });
+            await _uow.SaveChangesAsync();
 
             return Unit.Value;
         }

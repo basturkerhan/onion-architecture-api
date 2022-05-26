@@ -11,6 +11,7 @@ namespace Erhan.MovieTicketSystem.Application.Interfaces
     public interface IRepository<T> where T : BaseEntity
     {
         Task<List<T>> GetAllAsync();
+        Task<List<T>> GetAllAsync(Expression<Func<T, bool>> filter);
         Task<T> FindAsync(int id);
         Task<T> GetByFilterAsync(Expression<Func<T, bool>> filter, bool asNoTracking = false);
         IQueryable<T> GetQuery();
