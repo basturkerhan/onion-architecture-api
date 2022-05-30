@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Erhan.MovieTicketSystem.Persistence.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialCommit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -112,8 +112,6 @@ namespace Erhan.MovieTicketSystem.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IsSuitable = table.Column<bool>(type: "bit", nullable: false),
-                    ChairNumber = table.Column<int>(type: "int", nullable: false),
                     HallId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -180,6 +178,33 @@ namespace Erhan.MovieTicketSystem.Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Reservations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AppUserId = table.Column<int>(type: "int", nullable: false),
+                    ChairId = table.Column<int>(type: "int", nullable: false),
+                    ReservationDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reservations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Reservations_AppUser_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AppUser",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Reservations_Chair_ChairId",
+                        column: x => x.ChairId,
+                        principalTable: "Chair",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AppUser_AppRoleId",
                 table: "AppUser",
@@ -228,21 +253,40 @@ namespace Erhan.MovieTicketSystem.Persistence.Migrations
                 name: "IX_MovieHall_MovieId",
                 table: "MovieHall",
                 column: "MovieId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reservations_AppUserId",
+                table: "Reservations",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reservations_ChairId",
+                table: "Reservations",
+                column: "ChairId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AppUser");
-
-            migrationBuilder.DropTable(
-                name: "Chair");
-
-            migrationBuilder.DropTable(
                 name: "MovieGenre");
 
             migrationBuilder.DropTable(
                 name: "MovieHall");
+
+            migrationBuilder.DropTable(
+                name: "Reservations");
+
+            migrationBuilder.DropTable(
+                name: "Genre");
+
+            migrationBuilder.DropTable(
+                name: "Movie");
+
+            migrationBuilder.DropTable(
+                name: "AppUser");
+
+            migrationBuilder.DropTable(
+                name: "Chair");
 
             migrationBuilder.DropTable(
                 name: "AppRole");
@@ -251,13 +295,7 @@ namespace Erhan.MovieTicketSystem.Persistence.Migrations
                 name: "Gender");
 
             migrationBuilder.DropTable(
-                name: "Genre");
-
-            migrationBuilder.DropTable(
                 name: "Hall");
-
-            migrationBuilder.DropTable(
-                name: "Movie");
         }
     }
 }

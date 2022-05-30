@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Commands
 {
-    public class CancelReservationChairCommandRequest : IRequest<Response>
+    public class DeleteMovieGenreCommandRequest : IRequest<Response>
     {
         public int Id { get; set; }
-        public CancelReservationChairCommandRequest(int id)
+
+        public DeleteMovieGenreCommandRequest(int id)
         {
             Id = id;
         }

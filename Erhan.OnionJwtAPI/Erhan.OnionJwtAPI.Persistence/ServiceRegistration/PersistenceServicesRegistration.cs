@@ -14,5 +14,6 @@ namespace Erhan.MovieTicketSystem.Persistence.ServiceRegistration
             serviceCollection.AddScoped<IUow, Uow>();
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
+
     }
 }

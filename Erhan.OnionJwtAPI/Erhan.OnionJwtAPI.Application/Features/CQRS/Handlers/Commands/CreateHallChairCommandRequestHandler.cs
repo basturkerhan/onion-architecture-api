@@ -1,4 +1,5 @@
-﻿using Erhan.MovieTicketSystem.Application.Enums;
+﻿using Erhan.MovieTicketSystem.Application.CustomMessages;
+using Erhan.MovieTicketSystem.Application.Enums;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
 using Erhan.MovieTicketSystem.Application.Interfaces;
 using Erhan.MovieTicketSystem.Application.Responses;
@@ -32,15 +33,13 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands
 
             Chair chair = new Chair
             {
-                HallId = request.HallId,
-                IsSuitable = true,
+                HallId = request.HallId
             };
 
             await _uow.GetRepository<Chair>().CreateAsync(chair);
-            hall.Chairs.Add(chair);
             await _uow.SaveChangesAsync();
 
-            return new Response(ResponseType.Success, "Salona koltuk ekleme işlemi başarılı");
+            return new Response(ResponseType.Success, HandlerMessages.SucceededAddMessage);
         }
     }
 }

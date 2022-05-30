@@ -1,4 +1,5 @@
-﻿using Erhan.MovieTicketSystem.Application.Enums;
+﻿using Erhan.MovieTicketSystem.Application.CustomMessages;
+using Erhan.MovieTicketSystem.Application.Enums;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
 using Erhan.MovieTicketSystem.Application.Interfaces;
 using Erhan.MovieTicketSystem.Application.Responses;
@@ -28,14 +29,13 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands
             Hall hall = await _uow.GetRepository<Hall>().FindAsync(chair.HallId);
             if(chair == null)
             {
-                return new Response(ResponseType.NotFound, "Bu salonda böyle bir koltuk mevcut değil");
+                return new Response(ResponseType.NotFound, HandlerMessages.ChairNotFoundMessage);
             }
 
             _uow.GetRepository<Chair>().Remove(chair);
-            hall.Chairs.Remove(chair);
             await _uow.SaveChangesAsync();
 
-            return new Response(ResponseType.Success, "Koltuk silme işlemi başarılı");
+            return new Response(ResponseType.Success, HandlerMessages.NotFoundMessage);
         }
     }
 }

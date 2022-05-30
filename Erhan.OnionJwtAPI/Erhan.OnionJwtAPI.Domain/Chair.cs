@@ -9,10 +9,8 @@ namespace Erhan.MovieTicketSystem.Domain
 {
     public class Chair : BaseEntity
     {
-        public bool IsSuitable { get; set; }
         public int HallId { get; set; }
         public Hall Hall { get; set; }
-        public int? AppUserId { get; set; }
-        public AppUser AppUser { get; set; }
+        public List<Reservation> Reservations { get; set; }
     }
 }

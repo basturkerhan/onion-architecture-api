@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Erhan.MovieTicketSystem.Application.Dto.ChairDto
+namespace Erhan.MovieTicketSystem.Application.Dto.MovieGenreDtos
 {
-    public class ChairListDto
+    public class MovieGenreListDto
     {
         public int Id { get; set; }
-        public bool IsSuitable { get; set; }
+        public string Definition { get; set; }
     }
 }

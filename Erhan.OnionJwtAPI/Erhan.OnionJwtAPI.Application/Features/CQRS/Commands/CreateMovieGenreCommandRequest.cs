@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Commands
 {
-    public class ReserveChairCommandRequest : IRequest<Response>
+    public class CreateMovieGenreCommandRequest : IRequest<Response>
     {
-        public int Id { get; set; }
-
-        public ReserveChairCommandRequest(int id)
+        public CreateMovieGenreCommandRequest(int genreId, int movieId)
         {
-            Id = id;
+            GenreId = genreId;
+            MovieId = movieId;
         }
+        public int GenreId { get; set; }
+        public int MovieId { get; set; }
     }
 }

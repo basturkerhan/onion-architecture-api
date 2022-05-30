@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Erhan.MovieTicketSystem.Application.CustomMessages;
 using Erhan.MovieTicketSystem.Application.Enums;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
 using Erhan.MovieTicketSystem.Application.Interfaces;
@@ -29,10 +30,10 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands
             {
                 _uow.GetRepository<Genre>().Update(_mapper.Map<Genre>(request), unchangedEntity);
                 await _uow.SaveChangesAsync();
-                return new Response(ResponseType.Success, "Güncelleme işlemi başarılı");
+                return new Response(ResponseType.Success, HandlerMessages.SucceededUpdateMessage);
             }
 
-            return new Response(ResponseType.NotFound, "Aradığınız kayıt bulunamadı");
+            return new Response(ResponseType.NotFound, HandlerMessages.NotFoundMessage);
         }
     }
 }

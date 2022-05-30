@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Erhan.MovieTicketSystem.Persistence.Migrations
 {
     [DbContext(typeof(TicketDBContext))]
-    [Migration("20220526160856_ChairsUpdate")]
-    partial class ChairsUpdate
+    [Migration("20220529223214_InitialCommit")]
+    partial class InitialCommit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,9 +97,6 @@ namespace Erhan.MovieTicketSystem.Persistence.Migrations
 
                     b.Property<int>("HallId")
                         .HasColumnType("int");
-
-                    b.Property<bool>("IsSuitable")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -239,6 +236,31 @@ namespace Erhan.MovieTicketSystem.Persistence.Migrations
                     b.ToTable("MovieHall");
                 });
 
+            modelBuilder.Entity("Erhan.MovieTicketSystem.Domain.Reservation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ChairId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReservationDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ChairId");
+
+                    b.ToTable("Reservations");
+                });
+
             modelBuilder.Entity("Erhan.MovieTicketSystem.Domain.AppUser", b =>
                 {
                     b.HasOne("Erhan.MovieTicketSystem.Domain.AppRole", "AppRole")
@@ -307,9 +329,38 @@ namespace Erhan.MovieTicketSystem.Persistence.Migrations
                     b.Navigation("Movie");
                 });
 
+            modelBuilder.Entity("Erhan.MovieTicketSystem.Domain.Reservation", b =>
+                {
+                    b.HasOne("Erhan.MovieTicketSystem.Domain.AppUser", "AppUser")
+                        .WithMany("Reservations")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Erhan.MovieTicketSystem.Domain.Chair", "Chair")
+                        .WithMany("Reservations")
+                        .HasForeignKey("ChairId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Chair");
+                });
+
             modelBuilder.Entity("Erhan.MovieTicketSystem.Domain.AppRole", b =>
                 {
                     b.Navigation("AppUsers");
+                });
+
+            modelBuilder.Entity("Erhan.MovieTicketSystem.Domain.AppUser", b =>
+                {
+                    b.Navigation("Reservations");
+                });
+
+            modelBuilder.Entity("Erhan.MovieTicketSystem.Domain.Chair", b =>
+                {
+                    b.Navigation("Reservations");
                 });
 
             modelBuilder.Entity("Erhan.MovieTicketSystem.Domain.Gender", b =>

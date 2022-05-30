@@ -1,4 +1,5 @@
-﻿using Erhan.MovieTicketSystem.Application.Enums;
+﻿using Erhan.MovieTicketSystem.Application.CustomMessages;
+using Erhan.MovieTicketSystem.Application.Enums;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
 using Erhan.MovieTicketSystem.Application.Interfaces;
 using Erhan.MovieTicketSystem.Application.Responses;
@@ -29,10 +30,10 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands
             {
                 _uow.GetRepository<Hall>().Remove(deletedItem);
                 await _uow.SaveChangesAsync();
-                return new Response(ResponseType.Success, "Silme işlemi başarılı");
+                return new Response(ResponseType.Success, HandlerMessages.SucceededDeleteMessage);
             }
 
-            return new Response(ResponseType.NotFound, "Aradığınız kayıt bulunamadı");
+            return new Response(ResponseType.NotFound, HandlerMessages.NotFoundMessage);
         }
     }
 }

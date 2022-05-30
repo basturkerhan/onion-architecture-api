@@ -1,5 +1,6 @@
 ﻿using Erhan.MovieTicketSystem.Application.Dto.ChairDto;
 using Erhan.MovieTicketSystem.Application.Dto.HallDto;
+using Erhan.MovieTicketSystem.Application.Dto.MovieHallDtos;
 using Erhan.MovieTicketSystem.Application.Enums;
 using Erhan.MovieTicketSystem.Application.Extensions;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
@@ -89,8 +90,6 @@ namespace Erhan.MovieTicketSystem.API.Controllers
 
 
         // -------------------------- CHAIR ENDPOINTS --------------------------
-
-
         [HttpGet("{hallId}/chairs")]
         public async Task<IActionResult> GetHallChairs(int hallId)
         {
@@ -103,17 +102,18 @@ namespace Erhan.MovieTicketSystem.API.Controllers
             return NotFound(new Response(ResponseType.NotFound, "Bu salona ait herhangi bir koltuk bilgisi bulunamadı"));
         }
 
-        //[HttpGet("{hallId}/movies")]
-        //public async Task<IActionResult> GetHallMovies(int hallId)
-        //{
-        //    List<MovieListDto> hallChairs = await _mediator.Send(new GetAllHallMoviesQueryRequest(hallId));
-        //    if (hallChairs.Count > 0)
-        //    {
-        //        return Ok(hallChairs);
-        //    }
+        // -------------------------- MOVIE ENDPOINTS --------------------------
+        [HttpGet("{hallId}/movies")]
+        public async Task<IActionResult> GetHallMovies(int hallId)
+        {
+            List<MovieHallListDto> movies = await _mediator.Send(new GetAllMovieHallQueryRequest(hallId));
+            if (movies.Count > 0)
+            {
+                return Ok(movies);
+            }
 
-        //    return NotFound(new Response(ResponseType.NotFound, "Bu salona ait herhangi bir koltuk bilgisi bulunamadı"));
-        //}
+            return NotFound(new Response(ResponseType.NotFound, "Salona ait herhangi bir film bilgisi bulunamadı"));
+        }
 
 
     }

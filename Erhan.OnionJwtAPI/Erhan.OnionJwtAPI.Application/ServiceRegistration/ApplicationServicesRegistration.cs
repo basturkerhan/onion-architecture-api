@@ -22,6 +22,8 @@ namespace Erhan.MovieTicketSystem.Application.ServiceRegistration
     {
         public static void AddApplicationServices(this IServiceCollection serviceCollection)
         {
+            serviceCollection.AddTransient<IValidator<CreateMovieGenreCommandRequest>, CreateMovieGenreCommandValidator>();
+            serviceCollection.AddTransient<IValidator<CreateMovieHallCommandRequest>, CreateMovieHallCommandValidator>();
             serviceCollection.AddTransient<IValidator<CreateHallCommandRequest>, CreateHallCommandValidator>();
             serviceCollection.AddTransient<IValidator<UpdateHallCommandRequest>, UpdateHallCommandValidator>();
             serviceCollection.AddTransient<IValidator<UpdateGenreCommandRequest>, UpdateGenreCommandValidator>();

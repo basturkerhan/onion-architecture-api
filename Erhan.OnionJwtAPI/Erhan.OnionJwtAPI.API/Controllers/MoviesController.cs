@@ -1,15 +1,13 @@
 ﻿using Erhan.MovieTicketSystem.Application.Dto.MovieDtos;
+using Erhan.MovieTicketSystem.Application.Dto.MovieGenreDtos;
 using Erhan.MovieTicketSystem.Application.Enums;
 using Erhan.MovieTicketSystem.Application.Extensions;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
-using Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Queries;
 using Erhan.MovieTicketSystem.Application.Responses;
 using FluentValidation;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -90,6 +88,19 @@ namespace Erhan.MovieTicketSystem.API.Controllers
             }
 
             return BadRequest(new Response<UpdateMovieCommandRequest>(request, result.ConvertToCustomValidationError()));
+        }
+
+        // -------------------------- GENRE ENDPOINTS --------------------------
+        [HttpGet("{movieId}/genre")]
+        public async Task<IActionResult> GetHallMovies(int movieId)
+        {
+            List<MovieGenreListDto> genres = await _mediator.Send(new GetAllMovieGenreQueryRequest(movieId));
+            if (genres.Count > 0)
+            {
+                return Ok(genres);
+            }
+
+            return NotFound(new Response(ResponseType.NotFound, "Filme ait herhangi bir tür bilgisi bulunamadı"));
         }
 
     }

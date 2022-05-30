@@ -27,6 +27,7 @@ namespace Erhan.MovieTicketSystem.Persistence.Context
         public DbSet<Movie> Movie { get; set; }
         public DbSet<MovieGenre> MovieGenre { get; set; }
         public DbSet<MovieHall> MovieHall { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -37,6 +38,7 @@ namespace Erhan.MovieTicketSystem.Persistence.Context
             modelBuilder.ApplyConfiguration(new MovieConfiguration());
             modelBuilder.ApplyConfiguration(new GenderConfiguration());
             modelBuilder.ApplyConfiguration(new GenreConfiguration());
+            modelBuilder.ApplyConfiguration(new ReservationConfiguration());
             modelBuilder.ApplyConfiguration(new MovieGenreConfiguration());
             modelBuilder.ApplyConfiguration(new MovieHallConfiguration());
         }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Erhan.MovieTicketSystem.Application.CustomMessages;
 using Erhan.MovieTicketSystem.Application.Enums;
 using Erhan.MovieTicketSystem.Application.Features.CQRS.Commands;
 using Erhan.MovieTicketSystem.Application.Interfaces;
@@ -32,7 +33,7 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands
             });
             await _uow.SaveChangesAsync();
 
-            return new Response(ResponseType.Success, "Tür ekleme işlemi başarılı");
+            return new Response(ResponseType.Success, HandlerMessages.SucceededCreateMessage);
         }
     }
 }
