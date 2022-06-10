@@ -15,14 +15,12 @@ namespace Erhan.MovieTicketSystem.API.Controllers
 {
     [Route("api/hall/movies")]
     [ApiController]
-    public class MovieHallController : ControllerBase
+    public class MovieHallController : BaseController
     {
-        private readonly IMediator _mediator;
         private readonly IValidator<CreateMovieHallCommandRequest> _createMovieHallValidator;
 
-        public MovieHallController(IMediator mediator, IValidator<CreateMovieHallCommandRequest> createMovieHallValidator)
+        public MovieHallController(IValidator<CreateMovieHallCommandRequest> createMovieHallValidator)
         {
-            _mediator = mediator;
             _createMovieHallValidator = createMovieHallValidator;
         }
 
@@ -32,7 +30,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
             var result = _createMovieHallValidator.Validate(request);
             if (result.IsValid)
             {
-                Response response = await _mediator.Send(request);
+                Response response = await Mediator.Send(request);
                 return response.Equals(ResponseType.Success) ? Ok(response) : BadRequest(response);
             }
             return BadRequest(new Response<CreateMovieHallCommandRequest>(request, result.ConvertToCustomValidationError()));
@@ -41,14 +39,14 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            Response response = await _mediator.Send(new DeleteHallMovieCommandRequest(id));
+            Response response = await Mediator.Send(new DeleteHallMovieCommandRequest(id));
             return response.Equals(ResponseType.Success) ? Ok(response) : NotFound(response);
         }
 
         [HttpPut]
         public async Task<IActionResult> Update(UpdateMovieHallCommandRequest request)
         {
-            Response response = await _mediator.Send(request);
+            Response response = await Mediator.Send(request);
             return response.Equals(ResponseType.Success) ? Ok(response) : NotFound(response);
         }
 

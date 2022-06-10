@@ -17,14 +17,12 @@ namespace Erhan.MovieTicketSystem.API.Controllers
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-    public class MoviesController : ControllerBase
+    public class MoviesController : BaseController
     {
-        private readonly IMediator _mediator;
         private readonly IValidator<CreateMovieCommandRequest> _createMovieCommandValidator;
         private readonly IValidator<UpdateMovieCommandRequest> _updateMovieCommandValidator;
-        public MoviesController(IMediator mediator, IValidator<CreateMovieCommandRequest> createMovieCommandValidator, IValidator<UpdateMovieCommandRequest> updateMovieCommandValidator)
+        public MoviesController(IValidator<CreateMovieCommandRequest> createMovieCommandValidator, IValidator<UpdateMovieCommandRequest> updateMovieCommandValidator)
         {
-            _mediator = mediator;
             _createMovieCommandValidator = createMovieCommandValidator;
             _updateMovieCommandValidator = updateMovieCommandValidator;
         }
@@ -33,7 +31,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         //[Authorize(Roles = "Member,Admin")]
         public async Task<IActionResult> GetAll()
         {
-            List<MovieListDto> movieListDto = await _mediator.Send(new GetAllMoviesQueryRequest());
+            List<MovieListDto> movieListDto = await Mediator.Send(new GetAllMoviesQueryRequest());
             if(movieListDto.Count > 0)
             {
                 return Ok(movieListDto);
@@ -45,7 +43,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         //[Authorize(Roles = "Member,Admin")]
         public async Task<IActionResult> GetById(int id)
         {
-            MovieDetailsDto movieDetailsDto = await _mediator.Send(new GetMovieDetailsQueryRequest(id));
+            MovieDetailsDto movieDetailsDto = await Mediator.Send(new GetMovieDetailsQueryRequest(id));
             if(movieDetailsDto != null)
             {
                 return Ok(movieDetailsDto);
@@ -61,7 +59,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
             var result = _createMovieCommandValidator.Validate(request);
             if(result.IsValid)
             {
-                Response response = await _mediator.Send(request);
+                Response response = await Mediator.Send(request);
                 return Created("", response);
             }
 
@@ -72,7 +70,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
-            Response response = await _mediator.Send(new DeleteMovieCommandRequest(id));
+            Response response = await Mediator.Send(new DeleteMovieCommandRequest(id));
             return response.Equals(ResponseType.Success) ? Ok(response) : NotFound(response);
         }
 
@@ -83,7 +81,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
             var result = _updateMovieCommandValidator.Validate(request);
             if (result.IsValid)
             {
-                Response response = await _mediator.Send(request);
+                Response response = await Mediator.Send(request);
                 return response.Equals(ResponseType.Success) ? Ok(response) : NotFound(response);
             }
 
@@ -94,7 +92,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         [HttpGet("{movieId}/genre")]
         public async Task<IActionResult> GetHallMovies(int movieId)
         {
-            List<MovieGenreListDto> genres = await _mediator.Send(new GetAllMovieGenreQueryRequest(movieId));
+            List<MovieGenreListDto> genres = await Mediator.Send(new GetAllMovieGenreQueryRequest(movieId));
             if (genres.Count > 0)
             {
                 return Ok(genres);

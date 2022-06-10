@@ -8,6 +8,7 @@ namespace Erhan.MovieTicketSystem.Application.CustomMessages
 {
     public static class HandlerMessages
     {
+        public static string GenericErrorMessage = "Bir hata oluştu. İşlem tamamlanamadı.";
         public static string SucceededMessage = "İşlem başarıyla tamamlandı.";
         public static string SucceededDeleteMessage = "Silme işlemi başarıyla tamamlandı.";
         public static string SucceededUpdateMessage = "Güncelleme işlemi başarıyla tamamlandı.";
@@ -19,6 +20,7 @@ namespace Erhan.MovieTicketSystem.Application.CustomMessages
         public static string HallNotFoundMessage = "Aradığınız ID ile eşleşen salon bulunamadı.";
         public static string GenreNotFoundMessage = "Aradığınız ID ile eşleşen tür bulunamadı.";
         public static string UserNotFoundMessage = "Aradığınız ID ile eşleşen kullanıcı bulunamadı.";
+        public static string ReservationNotFoundMessage = "Aradığınız ID ile eşleşen rezervasyon bulunamadı.";
         public static string MovieHallNotFoundMessage = "Bu salonda böyle bir film yer almamaktadır.";
         public static string MovieAlreadyExistInHallMessage = "Bu salonda böyle bir film zaten yer almaktadır.";
         public static string GenreAlreadyExistInMovieMessage = "Bu filmde bu tür zaten yer almaktadır.";

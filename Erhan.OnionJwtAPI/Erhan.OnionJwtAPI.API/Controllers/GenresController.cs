@@ -16,16 +16,14 @@ namespace Erhan.MovieTicketSystem.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GenresController : ControllerBase
+    public class GenresController : BaseController
     {
         private readonly IValidator<UpdateGenreCommandRequest> _updateValidator;
         private readonly IValidator<CreateGenreCommandRequest> _createValidator;
-        private readonly IMediator _mediator;
 
-        public GenresController(IValidator<CreateGenreCommandRequest> createValidator, IMediator mediator, IValidator<UpdateGenreCommandRequest> updateValidator)
+        public GenresController(IValidator<CreateGenreCommandRequest> createValidator, IValidator<UpdateGenreCommandRequest> updateValidator)
         {
             _createValidator = createValidator;
-            _mediator = mediator;
             _updateValidator = updateValidator;
         }
 
@@ -33,7 +31,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         //[Authorize(Roles = "Member,Admin")]
         public async Task<IActionResult> GetAll()
         {
-            List<GenreListDto> dto = await _mediator.Send(new GetAllGenresQueryRequest());
+            List<GenreListDto> dto = await Mediator.Send(new GetAllGenresQueryRequest());
             if (dto == null)
             {
                 return BadRequest(new Response(ResponseType.NotFound, "Kayıt bulunamadı"));
@@ -45,7 +43,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         //[Authorize(Roles = "Member,Admin")]
         public async Task<IActionResult> GetById(int id)
         {
-            GenreDetailsDto dto = await _mediator.Send(new GetGenreDetailsQueryRequest(id));
+            GenreDetailsDto dto = await Mediator.Send(new GetGenreDetailsQueryRequest(id));
             if (dto != null)
             {
                 return Ok(dto);
@@ -60,7 +58,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
             var result = _createValidator.Validate(request);
             if (result.IsValid)
             {
-                Response response = await _mediator.Send(request);
+                Response response = await Mediator.Send(request);
                 return Created("", response);
             }
 
@@ -71,7 +69,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
-            Response response = await _mediator.Send(new DeleteGenreCommandRequest(id));
+            Response response = await Mediator.Send(new DeleteGenreCommandRequest(id));
             return response.Equals(ResponseType.Success) ? Ok(response) : NotFound(response);
 
         }
@@ -83,7 +81,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
             var result = _updateValidator.Validate(request);
             if (result.IsValid)
             {
-                Response response = await _mediator.Send(request);
+                Response response = await Mediator.Send(request);
                 return response.Equals(ResponseType.Success) ? Ok(response) : NotFound(response);
             }
 

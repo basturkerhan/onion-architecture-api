@@ -12,14 +12,12 @@ namespace Erhan.MovieTicketSystem.API.Controllers
 {
     [Route("api/movie/genres")]
     [ApiController]
-    public class MovieGenreController : ControllerBase
+    public class MovieGenreController : BaseController
     {
-        private readonly IMediator _mediator;
         private readonly IValidator<CreateMovieGenreCommandRequest> _createMovieGenreValidator;
 
-        public MovieGenreController(IMediator mediator, IValidator<CreateMovieGenreCommandRequest> createMovieGenreValidator)
+        public MovieGenreController(IValidator<CreateMovieGenreCommandRequest> createMovieGenreValidator)
         {
-            _mediator = mediator;
             _createMovieGenreValidator = createMovieGenreValidator;
         }
 
@@ -29,7 +27,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
             var result = _createMovieGenreValidator.Validate(request);
             if (result.IsValid)
             {
-                Response response = await _mediator.Send(request);
+                Response response = await Mediator.Send(request);
                 return response.Equals(ResponseType.Success) ? Ok(response) : BadRequest(response);
             }
             return BadRequest(new Response<CreateMovieGenreCommandRequest>(request, result.ConvertToCustomValidationError()));
@@ -38,7 +36,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteGenre(int id)
         {
-            Response response = await _mediator.Send(new DeleteMovieGenreCommandRequest(id));
+            Response response = await Mediator.Send(new DeleteMovieGenreCommandRequest(id));
             return response.Equals(ResponseType.Success) ? Ok(response) : NotFound(response);
         }
 

@@ -19,14 +19,12 @@ namespace Erhan.MovieTicketSystem.API.Controllers
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-    public class HallsController : ControllerBase
+    public class HallsController : BaseController
     {
-        private readonly IMediator _mediator;
         private readonly IValidator<CreateHallCommandRequest> _createHallValidator;
         private readonly IValidator<UpdateHallCommandRequest> _updateHallValidator;
-        public HallsController(IMediator mediator, IValidator<CreateHallCommandRequest> createHallValidator, IValidator<UpdateHallCommandRequest> updateHallValidator)
+        public HallsController(IValidator<CreateHallCommandRequest> createHallValidator, IValidator<UpdateHallCommandRequest> updateHallValidator)
         {
-            _mediator = mediator;
             _createHallValidator = createHallValidator;
             _updateHallValidator = updateHallValidator;
         }
@@ -34,7 +32,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            List<HallListDto> halls = await _mediator.Send(new GetAllHallsQueryRequest());
+            List<HallListDto> halls = await Mediator.Send(new GetAllHallsQueryRequest());
             if(halls.Count > 0)
             {
                 return Ok(halls);
@@ -46,7 +44,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            HallDetailsDto hall = await _mediator.Send(new GetHallDetailsQueryRequest(id));
+            HallDetailsDto hall = await Mediator.Send(new GetHallDetailsQueryRequest(id));
             if (hall == null)
             {
                 return NotFound(new Response(ResponseType.NotFound, "Salon bilgisi bulunamadı"));
@@ -61,7 +59,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
             var result = _createHallValidator.Validate(request);
             if(result.IsValid)
             {
-                Response response = await _mediator.Send(request);
+                Response response = await Mediator.Send(request);
                 return Created("", response);
             }
 
@@ -71,7 +69,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            Response response = await _mediator.Send(new DeleteHallCommandRequest(id));
+            Response response = await Mediator.Send(new DeleteHallCommandRequest(id));
             return response.Equals(ResponseType.Success) ? Ok(response) : NotFound(response);
         }
 
@@ -81,7 +79,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
             var result = _updateHallValidator.Validate(request);
             if(result.IsValid)
             {
-                Response response = await _mediator.Send(request);
+                Response response = await Mediator.Send(request);
                 return response.Equals(ResponseType.Success) ? Ok(response) : NotFound(response);
             }
 
@@ -93,7 +91,7 @@ namespace Erhan.MovieTicketSystem.API.Controllers
         [HttpGet("{hallId}/chairs")]
         public async Task<IActionResult> GetHallChairs(int hallId)
         {
-            List<ChairListDto> hallChairs = await _mediator.Send(new GetAllHallChairsQueryRequest(hallId));
+            List<ChairListDto> hallChairs = await Mediator.Send(new GetAllHallChairsQueryRequest(hallId));
             if (hallChairs.Count > 0)
             {
                 return Ok(hallChairs);
@@ -102,11 +100,18 @@ namespace Erhan.MovieTicketSystem.API.Controllers
             return NotFound(new Response(ResponseType.NotFound, "Bu salona ait herhangi bir koltuk bilgisi bulunamadı"));
         }
 
+        [HttpPost("{hallId}/chairs/add")]
+        public async Task<IActionResult> Create(int hallId)
+        {
+            Response response = await Mediator.Send(new CreateHallChairCommandRequest(hallId));
+            return response.Equals(ResponseType.Success) ? Created("", response) : NotFound(response);
+        }
+
         // -------------------------- MOVIE ENDPOINTS --------------------------
         [HttpGet("{hallId}/movies")]
         public async Task<IActionResult> GetHallMovies(int hallId)
         {
-            List<MovieHallListDto> movies = await _mediator.Send(new GetAllMovieHallQueryRequest(hallId));
+            List<MovieHallListDto> movies = await Mediator.Send(new GetAllMovieHallQueryRequest(hallId));
             if (movies.Count > 0)
             {
                 return Ok(movies);

@@ -37,7 +37,7 @@ namespace Erhan.MovieTicketSystem.Application.Features.CQRS.Handlers.Commands
                 return new Response(ResponseType.NotFound, HandlerMessages.GenreNotFoundMessage);
             }
 
-            if (_uow.GetRepository<MovieGenre>().GetByFilterAsync(x => x.GenreId == request.GenreId && x.MovieId == request.MovieId) != null)
+            if (_uow.GetRepository<MovieGenre>().GetByFilterAsync(x => (x.GenreId == request.GenreId && x.MovieId == request.MovieId)) != null)
             {
                 return new Response(ResponseType.ValidationError, HandlerMessages.GenreAlreadyExistInMovieMessage);
             }
